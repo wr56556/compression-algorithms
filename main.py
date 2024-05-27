@@ -1,16 +1,13 @@
 from PIL import Image
 import requests
 from io import BytesIO
-from bitarray import bitarray
-import math
-from rle import rle_decode, rle_encode
-from huffman import huffman_encode, huffman_decode
+from algorithms.rle import rle_decode, rle_encode
+from algorithms.huffman import huffman_encode, huffman_decode
 import numpy as np
-from lz77 import lz77_encode, lz77_decode
-from bwt import bwt_decode, bwt_encode
-from mtf import MTF
+from algorithms.lz77 import lz77_encode, lz77_decode
+from algorithms.bwt import bwt_decode, bwt_encode
+from algorithms.mtf import mtf_encode, mtf_decode
 
-# Пример загрузки изображений
 image_urls = [
     "https://cs.pikabu.ru/post_img/big/2013/03/17/6/1363508611_1596589037.jpg",  # black-white
     "https://blog.aspose.cloud/ru/imaging/grayscale-image-in-java/images/grayscale.jpg",  # gray
@@ -24,7 +21,7 @@ for url in image_urls:
     images.append(img)
 
 # Приведение изображений к одинаковому разрешению
-resolution = (55, 55)  # Пример разрешения
+resolution = (55, 55)
 resized_images = [img.resize(resolution) for img in images]
 
 
